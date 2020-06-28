@@ -186,7 +186,142 @@ public class App
          
     	System.out.println("Total Amount: " + formatTotalAmount);
     	
-    */
+  
+    	String[] studentNames = new String[3];
+    	studentNames[0] = "June";
+    	studentNames[1] = "May";
+    	studentNames[2] = "Sept";
     	
+    	for(int i=0; i < studentNames.length; i++) {
+    		System.out.println("Student " + (i + 1) + " is " + studentNames[i]);
+    	}
+    	
+    	System.out.println(" ***********************************") ;
+    	
+    
+    	int j = 0;
+    	for(String student: studentNames) {
+    		System.out.println("Student " + (++j) + " is " + student);
+    	}
+    	//Matrix Beginning
+    	int matRow=2;
+    	int matCol=3;
+    	int[][] matA = new int[matRow][matCol];
+    	
+    	for(int row=0; row <matRow; row++) {
+    		
+    		System.out.println("Current row is " + row);
+    		for(int col=0; col<matCol; col++) {
+    			System.out.println("row=" + row + "col=" + col);
+    			Scanner input = new Scanner(System.in);
+    			System.out.println("Enter value for row "+row + ", col " + col);
+    			matA[row][col] = input.nextInt();
+    		}
+    	}
+    	
+    	for(int row=0; row<matRow; row++) {
+    		System.out.print("|" + "\t");
+    		for(int col=0; col<matCol; col++) {
+    			System.out.print(matA[row][col] + "\t");
+    		}
+    		System.out.println("|");
+    	}
+    	//Sum all the numbers on each row
+    	for(int row=0; row<matRow; row++) {
+    		int sumOfRow=0;
+    		for(int col=0; col<matCol; col++) {
+    			sumOfRow+=matA[row][col];
+    		}
+    		System.out.println("Sum of row "+ row + "=" + sumOfRow);
+    	}
+    	
+    	  */
+    	//Assignment 3
+    	
+    	String[] Courses = new String[3];
+    	
+    	int rowData = 3;
+    	int colData = 2;
+    	int[][] studentData = new int[rowData][colData];
+    	
+    	for(int i=0; i <rowData; i++) {
+    		System.out.println("******************" + ( i +1) + "***********************");
+    		Scanner courses = new Scanner(System.in);
+        	System.out.println("Enter Your Course Code: ");
+        	Courses[i] = courses.next();
+        	
+    		for(int j=0; j<colData; j++) {
+    			if(j <=0) {
+    				Scanner scores = new Scanner(System.in);
+                	System.out.print("Enter Your Scores: ");
+                	int score = scores.nextInt();
+                	if(score >= 0 && score <= 39) {
+                		int point = 1;
+                		studentData[i][j] = point;
+                	}
+                	
+                	else if(score >= 40 && score <= 49) {
+                		int point = 2;
+                		studentData[i][j] = point;
+                	}
+                	
+                	else if(score >= 50 && score <= 59) {
+                		int point = 3;
+                		studentData[i][j] = point;
+                	}
+                	
+                	else if(score >= 60 && score <= 69) {
+                		int point = 4;
+                		studentData[i][j] = point;
+                	}
+                	else if(score >= 70 && score <= 100) {
+                		int point = 5;
+                		studentData[i][j] = point;
+                	}
+                	
+                	
+                	else {
+                			System.out.print("Not a valid Grade"); break;
+                			};
+    					}
+    			else {
+    				Scanner creditHours = new Scanner(System.in);
+        	    	System.out.println("Enter Credit Hours: ");
+        	    	studentData[i][j] = creditHours.nextInt();
+    			}	
+    		}
+    		
+    	}
+    	
+    	System.out.println("*****************************************");
+    	for(int i=0; i <rowData; i++) {
+    		System.out.print("|" + "\t");
+    		System.out.print(Courses[i] + "\t");
+    		for(int j=0; j<colData; j++) {
+    			System.out.print(studentData[i][j] + "\t");
+    		}
+    		System.out.println("|");
+    	}
+    	
+    	double sumCredit =0;
+		double cumSum = 0;
+    	for(int i=0; i<rowData; i++) {
+    		double cumAverage = 1;
+    		for(int j=0; j<colData; j++) {
+    			if(j >=1) {
+    				sumCredit += studentData[i][j];
+    			}
+    			cumAverage*=studentData[i][j];
+    			
+    		}
+    		cumSum += cumAverage;	
+    	}
+    	double GPA = cumSum / sumCredit;
+    	System.out.println("Total Cummulative =" + cumSum);
+		System.out.println("Sum of the Credits =" + sumCredit);
+		System.out.println("Grade Point Average =" + GPA);
+	
+    	
+    	   	
     }
 }
