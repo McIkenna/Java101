@@ -1,5 +1,6 @@
 package firstjava.java101;
 import java.util.Scanner;
+import java.text.DecimalFormat;
 
 /**
  * Hello world!
@@ -103,8 +104,7 @@ public class App
     		System.out.print(" The total Price is : " + totalPrice);
     		} 
     		
-    		*/
-    	//ASSIGNMENT 3
+    		//ASSIGNMENT 3
     	Scanner grade = new Scanner(System.in);
     	System.out.print("Enter your grade: ");
     	Double grades = grade.nextDouble();
@@ -135,6 +135,58 @@ public class App
     	else {
     			System.out.print("Not a valid Grade");
     			};
+    		
+    	
+    	String[] itemNames = new String[5];
+    	int size = itemNames.length;
+    	double[] itemPrices = new double[size];
+    	int[] itemQuantities = new int[size];
+    	double[] totalCostPerItems = new double[size];
+    	
+    	double totalAmount = 0.0;
+    	
+    
+    			
+    	for(int i= 0; i < size; i++) {
+    		
+    		System.out.println("*********** item" + (i + 1) + "*************");
+    		Scanner input = new Scanner(System.in);
+    		System.out.println("Enter Item Name: ");
+    		String itemName = input.nextLine();
+    		itemNames[i] = itemName;
+    		
+    		System.out.println("Enter Item Quantity: ");
+    		int itemQuantity = input.nextInt();
+    		itemQuantities[i] = itemQuantity;
+    		
+    		System.out.println("Enter Item Price: ");
+    		double itemPrice = input.nextDouble();
+    		itemPrices[i] = itemPrice;
+    		
+    		double totalCostPerItem = itemQuantity * itemPrice;
+    		totalCostPerItems[i] = totalCostPerItem;
+    		
+    		
+        	totalAmount +=totalCostPerItem;
+        			
+    	}
+    	System.out.print("ItemName \t | ");
+    	System.out.print("ItemPrice \t | ");
+    	System.out.print("ItemQuantity \t | ");
+    	System.out.println("TotalCost \t | ");
+    	for(int i = 0; i<size; i++) {
+    		System.out.print(itemNames[i] + " \t | ");
+        	System.out.print(itemPrices[i] + "\t | ");
+        	System.out.print(itemQuantities[i] + "\t | ");
+        	System.out.println(totalCostPerItems[i] + "\t | ");
+    	}
+    	
+    	DecimalFormat dFormat = new DecimalFormat("####,###,###.00");
+    	String formatTotalAmount = "$" + dFormat.format(totalAmount);
+         
+    	System.out.println("Total Amount: " + formatTotalAmount);
+    	
+    */
     	
     }
 }
