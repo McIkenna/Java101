@@ -235,8 +235,8 @@ public class App
     		System.out.println("Sum of row "+ row + "=" + sumOfRow);
     	}
     	
-    	  */
-    	//Assignment 3
+
+    	//Assignment 4
     	
     	String[] Courses = new String[3];
     	
@@ -321,7 +321,87 @@ public class App
 		System.out.println("Sum of the Credits =" + sumCredit);
 		System.out.println("Grade Point Average =" + GPA);
 	
+    	    	  */
     	
-    	   	
+    	//Assignment 5
+    	
+    	int row = 2;
+    	int col = 2;
+    	int[][] matA = new int[2][2];
+    	int[][] matB = new int[2][2];
+    	int[][] matC = new int[2][2];
+    	
+    	System.out.println("******************* Row A **********************");
+    	for(int i=0; i < row; i++ ) {
+    		
+    		for(int j=0; j<col; j++) {
+    			
+			Scanner input = new Scanner(System.in);
+    		System.out.println("Enter number for matrix A " + "row" + i + " col" + j);
+    		matA[i][j] = input.nextInt();
+    		}
+    	}
+    	
+    
+			System.out.println("******************* Row B **********************");
+    	for(int i=0; i < row; i++ ) {
+    		
+    		for(int j=0; j<col; j++) {
+ 
+			Scanner input = new Scanner(System.in);
+    		System.out.println("Enter number for Matrix B " + " row" + i + " col" + j);
+    		matB[i][j] = input.nextInt();
+    		}
+    	}
+    	
+    	
+    	
+    	for(int i=0; i <row; i++) {
+    		for(int j=0; j<col; j++) {
+    			if(i == 0 && j==0) {
+    				matC[i][j] = (matA[0][0]*matB[0][0]) + (matA[0][1]*matB[1][0]);
+    			}
+    			else if(i == 0 && j==1) {
+    				matC[i][j] = (matA[0][0]*matB[0][1]) + (matA[0][1]*matB[1][1]);
+    			}
+    			else if(i == 1 && j==0) {
+    				matC[i][j] = (matA[1][0]*matB[0][0]) + (matA[1][1]*matB[1][0]);
+    			}
+    			else if(i == 1 && j==1) {
+    				matC[i][j] = (matA[1][0]*matB[0][1]) + (matA[1][1]*matB[1][1]);
+    			}
+    		}
+    	}
+    	System.out.println("******************* Row A **********************");
+    	for(int i=0; i <row; i++) {
+    		System.out.print("|" + "\t");
+    		
+    		for(int j=0; j<col; j++) {
+    			System.out.print(matA[i][j] + "\t");
+    		}
+    		System.out.println("|");
+    	}
+    	
+    	System.out.println("******************* Row B **********************");
+    	for(int i=0; i <row; i++) {
+    		System.out.print("|" + "\t");
+    		
+    		for(int j=0; j<col; j++) {
+    			System.out.print(matB[i][j] + "\t");
+    		}
+    		System.out.println("|");
+    	}
+    	
+    	System.out.println("****************** Result of Multiplication ***********************");
+    	for(int i=0; i <row; i++) {
+    		System.out.print("|" + "\t");
+    		
+    		for(int j=0; j<col; j++) {
+    			System.out.print(matC[i][j] + "\t");
+    		}
+    		System.out.println("|");
+    	}
+    	
+    	
     }
 }
